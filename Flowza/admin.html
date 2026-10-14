@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowza - Admin</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <h2>Flowza<span>.</span></h2>
+                </div>
+                <label for="nav-toggle" class="nav-burger" title="Menu"><i class="fa-solid fa-bars"></i></label>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="nav-section">
+                    <span class="nav-category">WORKSPACE</span>
+                    <nav class="nav-links">
+                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-pie"></i> Overview</a>
+                        <a href="products.html" class="nav-link"><i class="fa-solid fa-box"></i> Products</a>
+                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-file-lines"></i> Orders</a>
+                        <a href="warehouse.html" class="nav-link"><i class="fa-solid fa-warehouse"></i> Warehouse</a>
+                        <a href="courier.html" class="nav-link"><i class="fa-solid fa-truck-fast"></i> Couriers</a>
+                        <a href="customer.html" class="nav-link"><i class="fa-solid fa-users"></i> Customers</a>
+                        <a href="admin.html" class="nav-link active" aria-current="page"><i class="fa-solid fa-shield-halved"></i> Admin</a>
+                    </nav>
+                </div>
+
+                <div class="nav-section account-section">
+                    <span class="nav-category">ACCOUNT</span>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+                    </a>
+
+                    <div class="workspace-user-card">
+                        <div class="user-avatar">F</div>
+                        <div class="user-details">
+                            <h4>Flowza Workspace</h4>
+                            <p>Inventory management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-title-group">
+                    <span class="breadcrumb">WORKSPACE / ADMIN</span>
+                    <h1>Admin Panel</h1>
+                    <p>Manage workspace users, permissions, and system settings.</p>
+                </div>
+            </header>
+
+            <section class="summary-grid">
+                <div class="metric-card">
+                    <div class="metric-icon purple"><i class="fa-solid fa-users"></i></div>
+                    <div class="metric-info">
+                        <span>Total users</span>
+                        <h3 data-stat="total-users">0</h3>
+                        <p>Registered workspace accounts</p>
+                    </div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon green"><i class="fa-solid fa-user-shield"></i></div>
+                    <div class="metric-info">
+                        <span>Administrators</span>
+                        <h3 data-stat="administrators">0</h3>
+                        <p>Users with admin privileges</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="content-card">
+                <div class="card-header">
+                    <h3>User Management</h3>
+                    <p>Control who has access to your workspace.</p>
+                </div>
+
+                <!-- Silinmə mesajı üçün yer -->
+                <div id="admin-message" style="margin-bottom: 15px; font-size: 14px; font-weight: 500;"></div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>USER</th>
+                                <th>EMAIL</th>
+                                <th>ROLE</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+                        <tbody id="users-table-body">
+                            <tr class="empty-row"><td colspan="5">No users yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="./admin.js"></script>
+    <script src="./global-profile.js"></script>
+</body>
+</html>

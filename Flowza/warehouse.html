@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flowza - Warehouse</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <input
+                type="checkbox"
+                id="nav-toggle"
+                class="nav-toggle"
+                aria-label="Toggle menu"
+            >
+
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <h2>Flowza<span>.</span></h2>
+                </div>
+
+                <label for="nav-toggle" class="nav-burger" title="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+            </div>
+
+            <div class="sidebar-menu">
+
+                <div class="nav-section">
+                    <span class="nav-category">WORKSPACE</span>
+
+                    <nav class="nav-links">
+                        <a href="./dashboard.html" class="nav-link">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            Overview
+                        </a>
+
+                        <a href="./products.html" class="nav-link">
+                            <i class="fa-solid fa-box"></i>
+                            Products
+                        </a>
+
+                        <a href="./orders.html" class="nav-link">
+                            <i class="fa-solid fa-file-lines"></i>
+                            Orders
+                        </a>
+
+                        <a
+                            href="./warehouse.html"
+                            class="nav-link active"
+                            aria-current="page"
+                        >
+                            <i class="fa-solid fa-warehouse"></i>
+                            Warehouse
+                        </a>
+
+                        <a href="./courier.html" class="nav-link">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Couriers
+                        </a>
+
+                        <a href="./customer.html" class="nav-link">
+                            <i class="fa-solid fa-users"></i>
+                            Customers
+                        </a>
+
+                        <a href="./admin.html" class="nav-link">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Admin
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="nav-section account-section">
+                    <span class="nav-category">ACCOUNT</span>
+
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Sign Out
+                    </a>
+
+                    <div class="workspace-user-card">
+                        <div class="user-avatar">F</div>
+
+                        <div class="user-details">
+                            <h4>Flowza Workspace</h4>
+                            <p>Inventory management</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <header class="top-header">
+
+                <div class="header-title-group">
+                    <span class="breadcrumb">WORKSPACE / WAREHOUSE</span>
+                    <h1>Warehouse</h1>
+                    <p>Monitor stock availability, product prices, and inventory levels.</p>
+                </div>
+
+                <div class="header-action-group">
+                    <label class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="warehouse-search"
+                            placeholder="Search warehouse items..."
+                            aria-label="Search warehouse items"
+                        >
+                    </label>
+                </div>
+
+            </header>
+
+            <!-- Inventory Statistics -->
+            <section class="summary-grid">
+
+                <div class="metric-card">
+                    <div class="metric-icon blue">
+                        <i class="fa-solid fa-warehouse"></i>
+                    </div>
+
+                    <div class="metric-info">
+                        <span>Inventory Units</span>
+                        <h3 data-stat="inventory-units">0</h3>
+                        <p>Total available stock</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon orange">
+                        <i class="fa-solid fa-triangle-exclamation"></i>
+                    </div>
+
+                    <div class="metric-info">
+                        <span>Low Stock Items</span>
+                        <h3 data-stat="low-stock-items">0</h3>
+                        <p>Products requiring attention</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Warehouse Table -->
+            <section class="content-card">
+
+                <div class="card-header">
+                    <h3>Inventory Status</h3>
+                    <p>View and manage products stored in your warehouse.</p>
+                </div>
+
+                <div class="table-responsive">
+
+                    <table class="data-table">
+
+                        <thead>
+                            <tr>
+                                <th>ITEM</th>
+                                <th>SKU / CODE</th>
+                                <th>PRICE</th>
+                                <th>LOCATION</th>
+                                <th>STOCK LEVEL</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="warehouse-table-body">
+                            <tr class="empty-row">
+                                <td colspan="7">
+                                    The warehouse is empty. Products you add will appear here.
+                                </td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <!-- Edit Product Dialog -->
+    <dialog id="edit-dialog" class="modal" aria-labelledby="edit-title">
+
+        <div class="modal-header">
+
+            <div>
+                <h3 id="edit-title">Edit Product</h3>
+                <p>Update the details of this warehouse item.</p>
+            </div>
+
+            <button
+                type="button"
+                class="modal-close-btn"
+                id="edit-close-x"
+                aria-label="Close dialog"
+            >
+                &times;
+            </button>
+
+        </div>
+
+        <form id="edit-form" class="product-form-grid">
+
+            <input type="hidden" id="edit-index">
+
+            <div class="form-group">
+                <label for="edit-name">Product Name</label>
+                <input
+                    type="text"
+                    id="edit-name"
+                    name="name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+
+                <label for="edit-image-file">Product Image</label>
+
+                <label
+                    for="edit-image-file"
+                    class="image-upload-container"
+                    id="edit-upload-trigger"
+                >
+                    <div
+                        class="upload-placeholder"
+                        id="edit-upload-placeholder"
+                    >
+                        <i class="fa-solid fa-plus"></i>
+                        <span>Choose Image</span>
+                    </div>
+
+                    <img
+                        id="edit-image-preview"
+                        alt="Product image preview"
+                        hidden
+                    >
+                </label>
+
+                <input
+                    type="file"
+                    id="edit-image-file"
+                    accept="image/*"
+                    hidden
+                >
+
+            </div>
+
+            <div class="form-group">
+                <label for="edit-price">Price (AZN)</label>
+                <input
+                    type="number"
+                    id="edit-price"
+                    name="price"
+                    min="0"
+                    step="0.01"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="edit-stock">Stock Quantity</label>
+                <input
+                    type="number"
+                    id="edit-stock"
+                    name="stock"
+                    min="0"
+                    step="1"
+                    required
+                >
+            </div>
+
+            <div class="form-group full-width">
+                <label for="edit-description">Product Description</label>
+                <textarea
+                    id="edit-description"
+                    name="description"
+                    rows="3"
+                ></textarea>
+            </div>
+
+            <div class="form-group full-width">
+                <div class="modal-footer-actions">
+
+                    <button
+                        type="button"
+                        class="btn-secondary-action"
+                        id="edit-cancel"
+                    >
+                        Cancel
+                    </button>
+
+                    <button
+                        type="submit"
+                        class="btn-primary-action"
+                    >
+                        <i class="fa-solid fa-check"></i>
+                        Save Changes
+                    </button>
+
+                </div>
+            </div>
+
+        </form>
+
+    </dialog>
+
+    <!-- External JavaScript -->
+    <script src="./script.js"></script>
+<script src="./auth.js"></script>
+<script src="./global-profile.js"></script>
+<script src="./courier.js"></script>
+</body>
+</html>
+

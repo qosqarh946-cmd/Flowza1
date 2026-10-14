@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Flowza - Orders</title>
+
+    <link rel="stylesheet" href="./style.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    >
+</head>
+
+<body>
+    <div class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <input
+                type="checkbox"
+                id="nav-toggle"
+                class="nav-toggle"
+                aria-label="Toggle menu"
+            >
+
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <h2>Flowza<span>.</span></h2>
+                </div>
+
+                <label for="nav-toggle" class="nav-burger" title="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="nav-section">
+                    <span class="nav-category">WORKSPACE</span>
+
+                    <nav class="nav-links">
+                        <a href="dashboard.html" class="nav-link">
+                            <i class="fa-solid fa-chart-pie"></i>
+                            Overview
+                        </a>
+
+                        <a href="products.html" class="nav-link">
+                            <i class="fa-solid fa-box"></i>
+                            Products
+                        </a>
+
+                        <a
+                            href="orders.html"
+                            class="nav-link active"
+                            aria-current="page"
+                        >
+                            <i class="fa-solid fa-file-lines"></i>
+                            Orders
+                        </a>
+
+                        <a href="warehouse.html" class="nav-link">
+                            <i class="fa-solid fa-warehouse"></i>
+                            Warehouse
+                        </a>
+
+                        <a href="courier.html" class="nav-link">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            Couriers
+                        </a>
+
+                        <a href="customer.html" class="nav-link">
+                            <i class="fa-solid fa-users"></i>
+                            Customers
+                        </a>
+
+                        <a href="admin.html" class="nav-link">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            Admin
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="nav-section account-section">
+                    <span class="nav-category">ACCOUNT</span>
+
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i>
+                        Sign out
+                    </a>
+
+                    <div class="workspace-user-card">
+                        <div class="user-avatar">F</div>
+
+                        <div class="user-details">
+                            <h4>Flowza Workspace</h4>
+                            <p>Inventory management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+
+            <!-- Header -->
+            <header class="top-header">
+                <div class="header-title-group">
+                    <span class="breadcrumb">WORKSPACE / ORDERS</span>
+                    <h1>Orders</h1>
+                    <p>Monitor customer orders and fulfillment status.</p>
+                </div>
+
+                <div class="header-action-group">
+                    <label class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+
+                        <input
+                            type="search"
+                            id="orders-search"
+                            placeholder="Search orders..."
+                            aria-label="Search orders"
+                        >
+                    </label>
+                </div>
+            </header>
+
+            <!-- Statistics -->
+            <section class="summary-grid">
+
+                <div class="metric-card">
+                    <div class="metric-icon purple">
+                        <i class="fa-solid fa-file-lines"></i>
+                    </div>
+
+                    <div class="metric-info">
+                        <span>Total Orders</span>
+                        <h3 data-stat="total-orders">0</h3>
+                        <p>All customer orders</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon orange">
+                        <i class="fa-solid fa-clock"></i>
+                    </div>
+
+                    <div class="metric-info">
+                        <span>Pending Orders</span>
+                        <h3 data-stat="pending-orders">0</h3>
+                        <p>Awaiting processing</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon green">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+
+                    <div class="metric-info">
+                        <span>Delivered Orders</span>
+                        <h3 data-stat="completed">0</h3>
+                        <p>Successfully delivered</p>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- Order History -->
+            <section class="content-card">
+
+                <div class="card-header">
+                    <h3>
+                        <i class="fa-solid fa-clipboard-list"></i>
+                        Order History
+                    </h3>
+
+                    <p>View customer details and track order status.</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+
+                        <thead>
+                            <tr>
+                                <th>ORDER ID</th>
+                                <th>CUSTOMER</th>
+                                <th>ITEMS</th>
+                                <th>TOTAL</th>
+                                <th>STATUS</th>
+                                <th>ACTIONS</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="orders-table-body">
+                            <tr>
+                                <td colspan="6">Loading orders...</td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Orders JavaScript -->
+    <script src="./orders.js"></script>
+    <script src="./global-profile.js"></script>
+</body>
+</html>
+

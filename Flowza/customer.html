@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowza - Customers</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <h2>Flowza<span>.</span></h2>
+                </div>
+                <label for="nav-toggle" class="nav-burger" title="Menu"><i class="fa-solid fa-bars"></i></label>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="nav-section">
+                    <span class="nav-category">WORKSPACE</span>
+                    <nav class="nav-links">
+                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-pie"></i> Overview</a>
+                        <a href="products.html" class="nav-link"><i class="fa-solid fa-box"></i> Products</a>
+                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-file-lines"></i> Orders</a>
+                        <a href="warehouse.html" class="nav-link"><i class="fa-solid fa-warehouse"></i> Warehouse</a>
+                        <a href="courier.html" class="nav-link"><i class="fa-solid fa-truck-fast"></i> Couriers</a>
+                        <a href="customer.html" class="nav-link active" aria-current="page"><i class="fa-solid fa-users"></i> Customers</a>
+                        <a href="admin.html" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Admin</a>
+                    </nav>
+                </div>
+
+                <div class="nav-section account-section">
+                    <span class="nav-category">ACCOUNT</span>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+                    </a>
+
+                    <div class="workspace-user-card">
+                        <div class="user-avatar">F</div>
+                        <div class="user-details">
+                            <h4>Flowza Workspace</h4>
+                            <p>Inventory management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-title-group">
+                    <span class="breadcrumb">WORKSPACE / CUSTOMERS</span>
+                    <h1>Customer Order Entry</h1>
+                    <p>Enter customer details, product quantity, price, and payment type.</p>
+                </div>
+            </header>
+
+            <section class="content-card">
+                <div class="card-header">
+                    <h3>New Customer Order</h3>
+                    <p>Fill in the required information to place a new delivery order.</p>
+                </div>
+
+                <form id="customer-form" class="product-form-grid">
+                    <!-- Customer Full Name -->
+                    <div class="form-group">
+                        <label for="customer-name">Customer Name</label>
+                        <input type="text" id="customer-name" name="customerName" placeholder="Enter customer full name" required>
+                    </div>
+
+                    <!-- Phone Number -->
+                    <div class="form-group">
+                        <label for="customer-phone">Phone Number</label>
+                        <input type="tel" id="customer-phone" name="phone" placeholder="Enter phone number" required>
+                    </div>
+
+                    <!-- Delivery Address -->
+                    <div class="form-group full-width">
+                        <label for="customer-address">Address</label>
+                        <textarea id="customer-address" name="address" rows="2" placeholder="Enter full street address, building, apartment..." required></textarea>
+                    </div>
+
+                    <!-- Product Name -->
+                    <div class="form-group">
+                        <label for="product-name">Product Name</label>
+                        <input type="text" id="product-name" name="productName" placeholder="Enter product name" required>
+                    </div>
+
+                    <!-- Unit Price -->
+                    <div class="form-group">
+                        <label for="product-price">Unit Price ($)</label>
+                        <input type="number" id="product-price" name="price" step="0.01" min="0" placeholder="0.00" required>
+                    </div>
+
+                    <!-- Quantity -->
+                    <div class="form-group">
+                        <label for="product-quantity">Quantity</label>
+                        <input type="number" id="product-quantity" name="quantity" min="1" value="1" placeholder="Enter quantity" required>
+                    </div>
+
+                    <!-- Payment Method (Card / Cash) -->
+                    <div class="form-group">
+                        <label for="payment-method">Payment Method</label>
+                        <select id="payment-method" name="paymentMethod" style="background-color: var(--input-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 10px 14px; color: #fff; font-size: 14px; outline: none; width: 100%;">
+                            <option value="Cash">Cash</option>
+                            <option value="Card">Card</option>
+                        </select>
+                    </div>
+
+                    <!-- Form Action Button -->
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn-primary-action">
+                            <i class="fa-solid fa-paper-plane"></i> Save Order
+                        </button>
+                        <p id="form-message" class="form-message" role="status" style="margin-top: 10px; font-size: 13px; font-weight: 600; text-align: center;"></p>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+    <script src="customer.js"></script>
+    <script src="./global-profile.js"></script>
+    <script src="./script.js"></script>
+</body>
+</html>

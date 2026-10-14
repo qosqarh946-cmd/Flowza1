@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowza - Products</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <h2>Flowza<span>.</span></h2>
+                </div>
+                <label for="nav-toggle" class="nav-burger" title="Menu"><i class="fa-solid fa-bars"></i></label>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="nav-section">
+                    <span class="nav-category">WORKSPACE</span>
+                    <nav class="nav-links">
+                        <a href="dashboard.html" class="nav-link"><i class="fa-solid fa-chart-pie"></i> Overview</a>
+                        <a href="products.html" class="nav-link active" aria-current="page"><i class="fa-solid fa-box"></i> Products</a>
+                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-file-lines"></i> Orders</a>
+                        <a href="warehouse.html" class="nav-link"><i class="fa-solid fa-warehouse"></i> Warehouse</a>
+                        <a href="courier.html" class="nav-link"><i class="fa-solid fa-truck-fast"></i> Couriers</a>
+                        <a href="customer.html" class="nav-link"><i class="fa-solid fa-users"></i> Customers</a>
+                        <a href="admin.html" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Admin</a>
+                    </nav>
+                </div>
+
+                <div class="nav-section account-section">
+                    <span class="nav-category">ACCOUNT</span>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+                    </a>
+
+                    <div class="workspace-user-card">
+                        <div class="user-avatar">F</div>
+                        <div class="user-details">
+                            <h4>Flowza Workspace</h4>
+                            <p>Inventory management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-title-group">
+                    <span class="breadcrumb">WORKSPACE / PRODUCTS</span>
+                    <h1>Products</h1>
+                    <p>Manage your product catalog and send items to the warehouse.</p>
+                </div>
+                <div class="header-action-group">
+                    <label class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="Search products..." aria-label="Search products...">
+                    </label>
+                </div>
+            </header>
+
+            <section class="content-card">
+                <div class="card-header">
+                    <h3>Add New Product</h3>
+                    <p>Enter product details to show them in the warehouse.</p>
+                </div>
+
+                <form id="product-form" class="product-form-grid">
+                    <div class="form-group">
+                        <label for="product-name">Product name</label>
+                        <input type="text" id="product-name" name="name" placeholder="Enter product name" required>
+                    </div>
+
+                    <!-- Şəkil Yükləmə Sahəsi -->
+                    <div class="form-group">
+                        <label>Product image</label>
+                        <div class="image-upload-container" id="upload-trigger">
+                            <div class="upload-placeholder" id="upload-placeholder">
+                                <i class="fa-solid fa-plus"></i>
+                                <span>Upload image</span>
+                            </div>
+                            <img id="image-preview" alt="Preview" style="display: none; width: 100%; height: 100%; object-fit: cover;">
+                            <input type="file" id="product-image-file" name="image" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-price">Price</label>
+                        <input type="text" id="product-price" name="price" placeholder="0.00" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="product-stock">Stock quantity</label>
+                        <input type="text" id="product-stock" name="stock" placeholder="0" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="product-description">Product description</label>
+                        <textarea id="product-description" name="description" rows="3" placeholder="Enter product information..."></textarea>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <button type="submit" class="btn-primary-action">
+                            <i class="fa-solid fa-warehouse"></i> Send to Warehouse
+                        </button>
+                        <!-- Yaşıl rəngdə ingilis dilində uğur mesajı üçün -->
+                        <p id="form-message" class="form-message" role="status" style="margin-top: 10px; font-weight: 500;"></p>
+                    </div>
+                </form>
+            </section>
+        </main>
+    </div>
+
+    <!-- Skriptlər -->
+    <script src="./products.js"></script>
+    <script src="./global-profile.js"></script>
+</body>
+</html>

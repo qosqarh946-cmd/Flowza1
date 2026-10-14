@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | Flowza</title>
+    <link rel="stylesheet" href="./login-register.css">
+</head>
+<body>
+    <div class="auth-card">
+        <div class="auth-header">
+            <h2>Flowza<span>.</span></h2>
+            <p>Create your new account</p>
+        </div>
+        <form id="register-form">
+            <div class="form-group">
+                <label for="reg-role">Role</label>
+                <select id="reg-role" required>
+                    <option value="admin">Admin</option>
+                    <option value="warehouse">Warehouse Manager</option>
+                    <option value="courier">Courier</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-firstname">First Name</label>
+                <input type="text" id="reg-firstname" placeholder="Enter first name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-lastname" id="lbl-lastname">Last Name</label>
+                <input type="text" id="reg-lastname" placeholder="Enter last name" required>
+            </div>
+
+            <div class="form-group">
+                <label for="reg-password">Password</label>
+                <input type="password" id="reg-password" placeholder="••••••••" required>
+            </div>
+
+            <!-- Admin üçün Store adı və Telefon nömrəsi -->
+            <div id="fields-admin" class="role-fields">
+                <div class="form-group">
+                    <label for="reg-store">Store Name</label>
+                    <input type="text" id="reg-store" placeholder="Enter store name">
+                </div>
+                <div class="form-group">
+                    <label for="reg-admin-phone">Phone Number</label>
+                    <input type="text" id="reg-admin-phone" placeholder="Enter phone number">
+                </div>
+            </div>
+
+            <!-- Anbardar (Warehouse) üçün Ad, Soyad, Ünvan, Nömrə -->
+            <div id="fields-warehouse" class="role-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="reg-wh-address">Warehouse Address</label>
+                    <textarea id="reg-wh-address" placeholder="Enter warehouse address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="reg-wh-phone">Phone Number</label>
+                    <input type="text" id="reg-wh-phone" placeholder="Enter phone number">
+                </div>
+            </div>
+
+            <!-- Kuryer üçün Nömrə və Ünvan -->
+            <div id="fields-courier" class="role-fields" style="display: none;">
+                <div class="form-group">
+                    <label for="reg-phone">Phone Number</label>
+                    <input type="text" id="reg-phone" placeholder="Enter phone number">
+                </div>
+                <div class="form-group">
+                    <label for="reg-address">Delivery Address / Zone</label>
+                    <textarea id="reg-address" placeholder="Enter delivery address"></textarea>
+                </div>
+            </div>
+
+            <button type="submit">Create Account</button>
+
+            <p>Already have an account? <a href="login.html">Sign In</a></p>
+        </form>
+    </div>
+    <script src="./register.js"></script>
+    </body>
+</html>

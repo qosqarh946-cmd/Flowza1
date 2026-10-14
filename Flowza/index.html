@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flowza - Overview</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar navigation -->
+        <aside class="sidebar">
+            <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-label="Toggle menu">
+
+            <div class="sidebar-top">
+                <div class="sidebar-brand">
+                    <h2>Flowza<span>.</span></h2>
+                </div>
+                <label for="nav-toggle" class="nav-burger" title="Menu"><i class="fa-solid fa-bars"></i></label>
+            </div>
+
+            <div class="sidebar-menu">
+                <div class="nav-section">
+                    <span class="nav-category">WORKSPACE</span>
+                    <nav class="nav-links">
+                        <a href="dashboard.html" class="nav-link active" aria-current="page"><i class="fa-solid fa-chart-pie"></i> Overview</a>
+                        <a href="products.html" class="nav-link"><i class="fa-solid fa-box"></i> Products</a>
+                        <a href="orders.html" class="nav-link"><i class="fa-solid fa-file-lines"></i> Orders</a>
+                        <a href="warehouse.html" class="nav-link"><i class="fa-solid fa-warehouse"></i> Warehouse</a>
+                        <a href="courier.html" class="nav-link"><i class="fa-solid fa-truck-fast"></i> Couriers</a>
+                        <a href="customer.html" class="nav-link"><i class="fa-solid fa-users"></i> Customers</a>
+                        <a href="admin.html" class="nav-link"><i class="fa-solid fa-shield-halved"></i> Admin</a>
+                    </nav>
+                </div>
+
+                <div class="nav-section account-section">
+                    <span class="nav-category">ACCOUNT</span>
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-arrow-right-from-bracket"></i> Sign out
+                    </a>
+
+                    <div class="workspace-user-card">
+                        <div class="user-avatar">F</div>
+                        <div class="user-details">
+                            <h4>Flowza Workspace</h4>
+                            <p>Inventory management</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main content -->
+        <main class="main-content">
+            <header class="top-header">
+                <div class="header-title-group">
+                    <span class="breadcrumb">WORKSPACE / OVERVIEW</span>
+                    <h1>Dashboard Overview</h1>
+                    <p>Welcome back! Here is a summary of your workspace activity.</p>
+                </div>
+                <div class="header-action-group">
+                    <label class="search-box">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" placeholder="Search workspace..." aria-label="Search workspace...">
+                    </label>
+                </div>
+            </header>
+
+            <!-- Metrik Kartlar və Gəlir Hesablayıcıları -->
+            <section class="summary-grid">
+                <div class="metric-card">
+                    <div class="metric-icon purple"><i class="fa-solid fa-box"></i></div>
+                    <div class="metric-info">
+                        <span>Total products</span>
+                        <h3 data-stat="total-products">0</h3>
+                        <p>Catalog items</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon blue"><i class="fa-solid fa-file-lines"></i></div>
+                    <div class="metric-info">
+                        <span>Total orders</span>
+                        <h3 data-stat="total-orders">0</h3>
+                        <p>Customer transactions</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon orange"><i class="fa-solid fa-warehouse"></i></div>
+                    <div class="metric-info">
+                        <span>Warehouse stock</span>
+                        <h3 data-stat="warehouse-stock">0</h3>
+                        <p>Available units</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon green"><i class="fa-solid fa-truck-fast"></i></div>
+                    <div class="metric-info">
+                        <span>Active couriers</span>
+                        <h3 data-stat="active-couriers">0</h3>
+                        <p>On delivery route</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon green"><i class="fa-solid fa-coins"></i></div>
+                    <div class="metric-info">
+                        <span>Daily Revenue</span>
+                        <h3 data-stat="daily-revenue">$0.00</h3>
+                        <p>Today's earnings</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon purple"><i class="fa-solid fa-calendar-days"></i></div>
+                    <div class="metric-info">
+                        <span>Monthly Revenue</span>
+                        <h3 data-stat="monthly-revenue">$0.00</h3>
+                        <p>This month's earnings</p>
+                    </div>
+                </div>
+
+                <div class="metric-card">
+                    <div class="metric-icon blue"><i class="fa-solid fa-chart-line"></i></div>
+                    <div class="metric-info">
+                        <span>Annual Revenue</span>
+                        <h3 data-stat="annual-revenue">$0.00</h3>
+                        <p>This year's earnings</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Son Fəaliyyətlər Cədvəli -->
+            <section class="content-card">
+                <div class="card-header">
+                    <h3>Recent Activity</h3>
+                    <p>Latest actions across your workspace.</p>
+                </div>
+
+                <div class="table-responsive">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ACTIVITY</th>
+                                <th>MODULE</th>
+                                <th>STATUS</th>
+                                <th>DATE</th>
+                            </tr>
+                        </thead>
+                        <tbody id="activity-table-body">
+                            <tr class="empty-row"><td colspan="4">No activity yet.</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="./dashboard.js"></script>
+    <script src="./global-profile.js"></script>
+</body>
+</html>
